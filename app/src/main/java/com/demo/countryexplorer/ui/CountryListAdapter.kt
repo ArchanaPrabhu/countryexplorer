@@ -2,11 +2,13 @@ package com.demo.countryexplorer.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.demo.countryexplorer.databinding.LayoutCountryItemBinding
 import com.demo.countryexplorer.models.Country
 
+/**
+ * Adapter for recycler view to display [Country]
+ */
 class CountryListAdapter(private val countryList: MutableList<Country> = mutableListOf()) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

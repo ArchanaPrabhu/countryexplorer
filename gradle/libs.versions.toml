@@ -31,7 +31,7 @@ androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", versi
 squareup-retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
 squareup-retrofit2-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion" }
 retrofit-converter-scalars = { group = "com.squareup.retrofit2", name = "converter-scalars", version.ref = "retrofitVersion" }
-kotlinx-coroutines-test = { group = "org.jetbrains.kotlin", name = "kotlinx-coroutines-test", version.ref="kotlinTestVersion"}
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref="kotlinTestVersion"}
 mockito-core = { group="org.mockito", name="mockito-core", version.ref="mockitoVersion"}
 mockito-kotlin = { group="org.mockito.kotlin", name="mockito-kotlin", version.ref="mockitoKotlinVersion"}
 
