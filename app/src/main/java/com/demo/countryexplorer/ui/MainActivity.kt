@@ -1,5 +1,6 @@
 package com.demo.countryexplorer.ui
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -34,12 +35,6 @@ class MainActivity : AppCompatActivity() {
         setupUI()
         initRecyclerView()
         observeViewModel()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        val layoutManager = binding.countryListingRecyclerview.layoutManager as LinearLayoutManager
-        outState.putInt(SCROLL_POSITION, layoutManager.findFirstVisibleItemPosition())
     }
 
     private fun setupUI() {
@@ -87,9 +82,9 @@ class MainActivity : AppCompatActivity() {
                             recyclerAdapter.submitList(state.data)
 
                             // Restore scroll position only after rotation, not after every refresh
-                            if (!viewModel.isScrollRestored()) {
+                            if (viewModel.shouldRestoreScroll()) {
                                 restoreScrollPosition()
-                                viewModel.setScrollRestoredFlag()  // Mark that the scroll position has been restored
+                                viewModel.clearRotationFlag()
                             }
                         }
 
@@ -110,10 +105,9 @@ class MainActivity : AppCompatActivity() {
         viewModel.fetchCountryList()
     }
 
-    @OptIn(FlowPreview::class)
     private fun restoreScrollPosition() {
         // Get the saved scroll position from the ViewModel
-        val position = viewModel.getScrollPosition()
+        val position : Int? = viewModel.getScrollPosition()
         position?.let {
             binding.countryListingRecyclerview.post {
                 binding.countryListingRecyclerview.scrollToPosition(it)
@@ -121,7 +115,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    companion object {
-        const val SCROLL_POSITION = "scroll_position"
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        viewModel.setRotationFlag()
     }
 }

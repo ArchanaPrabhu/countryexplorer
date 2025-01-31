@@ -1,7 +1,6 @@
 package com.demo.countryexplorer.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -18,7 +17,6 @@ import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
 /**
@@ -42,8 +40,6 @@ class CountryListingViewModel(
         Log.e(TAG, "Error when fetching country list,  ${throwable.message}")
     }
 
-    private val _scrollPosition = savedStateHandle.getLiveData<Int>(SCROLL_POSITION)
-
     /**
      * Function to fetch country list from the repository layer.
      */
@@ -57,25 +53,29 @@ class CountryListingViewModel(
     }
 
     fun saveScrollPosition(position: Int) {
-        _scrollPosition.value = position
+        savedStateHandle[SCROLL_POSITION] = position
     }
 
     fun getScrollPosition(): Int? {
-        return _scrollPosition.value
+        return savedStateHandle[SCROLL_POSITION] ?: null
     }
 
-    fun setScrollRestoredFlag() {
-        savedStateHandle[RESTORE] = true
+    fun shouldRestoreScroll(): Boolean {
+        return savedStateHandle[WAS_ROTATED] ?: false
     }
 
-    fun isScrollRestored(): Boolean {
-        return savedStateHandle[RESTORE] ?: false
+    fun setRotationFlag() {
+        savedStateHandle[WAS_ROTATED] = true
+    }
+
+    fun clearRotationFlag() {
+        savedStateHandle[WAS_ROTATED] = false
     }
 
     companion object {
         private const val TAG = "CountryListViewModel"
         const val SCROLL_POSITION = "scroll_position"
-        const val RESTORE = "scroll_restored"
+        const val WAS_ROTATED = "was_rotated"
     }
 }
 
