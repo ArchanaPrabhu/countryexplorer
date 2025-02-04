@@ -19,7 +19,7 @@ import com.demo.countryexplorer.business.domain.state.MessageType
 import com.demo.countryexplorer.business.domain.state.Response
 import com.demo.countryexplorer.business.domain.state.StateMessageCallback
 import com.demo.countryexplorer.business.domain.state.UIComponentType
-import com.demo.countryexplorer.ui.state.UIController
+import com.demo.countryexplorer.framework.presentation.UIController
 import com.demo.countryexplorer.framework.presentation.countrylist.state.CountryStateEvent.FetchAllListsStateEvent
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview

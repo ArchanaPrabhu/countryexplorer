@@ -2,11 +2,11 @@
 
 ## Overview
 Country Explorer is an Android application that allows users to explore details about various countries. 
-The app fetches country data from a remote API and displays information such as name, population, region, and flag.
+The app fetches country data from a remote API and displays information.
 
 ## Features
 - Fetch and display a list of countries.
-- Scroll position preservation to maintain user experience.
+- Scroll position preservation on rotation to maintain user experience.
 - Error handling for network failures.
 - Uses modern Android architecture components (ViewModel, LiveData, StateFlow).
 
@@ -35,25 +35,39 @@ The app fetches country data from a REST API. Ensure you have the correct API en
 CountryExplorer/
 │── app/
 │   ├── src/main/java/com/demo/countryexplorer/
-│   │   ├── models/             # Data models
-│   │   ├── repository/         # Data fetching logic
-│   │   ├── util/               # Utility classes (Error Handling, UI State)
-│   │   ├── viewmodel/          # ViewModel layer (Business Logic)
-│   │   ├── ui/                 # UI components & Activities
-│   │   ├── api/                # Service APIs to execute network calls
+│   │   ├── business/             # Data models
+│   │   │   ├── data/             # Data models
+│   │   │   │   ├── cache/             # Data models
+│   │   │   │   │   ├── abstraction/             # CacheDataSource interfaces
+│   │   │   │   │   ├── implementation/          # CacheDataSource classes
+│   │   │   │   ├── network/                     
+│   │   │   │   │   ├── abstraction/             # NetworkDataSource interface
+│   │   │   │   │   ├── implementation/          # NetworkDataSource classes
+│   │   │   │   ├── util/             
+│   │   │   ├── domain/             
+│   │   │   │   ├── model/                       # Concreate classes that can help with ViewState processing
+│   │   │   │   ├── state/                       # ViewState processing classes
+│   │   │   │   ├── util/                        # Domain layer related utils for transformation of objects Eg. Mappers
+│   │   │   ├── interactors/                     
+│   │   │   │   ├── countrydetail/               # Repository classes and interfaces
+│   │   │   │   ├── countrylist/                 # Repository classes and interfaces
+│   │   ├── framework/                           
+│   │   │   ├── datasource
+│   │   │   │   ├── cache/                       
+│   │   │   │   ├── network/                     
+│   │   │   │   │   ├── abstraction/             # Service interface to define contracts (Not Retrofit)
+│   │   │   │   │   ├── api/                     # Interface implementation for retrofit 
+│   │   │   │   │   ├── implementation/          # Implementation of service
+│   │   │   │   │   ├── model/                   # Model class for network calls
+│   │   │   ├── presentation/                    # 
+│   │   │   │   ├── countrydetail/               # Data models
+│   │   │   │   ├── countrylist/                 # Data models
+│   │   │   │   │   ├── state/                   # ViewState and StateEvent
+│   │   ├── util/                                # Utility classes (Error Handling, UI State)
 ```
 
 ## ViewModel Explanation
-- `CountryListingViewModel` manages the state of country data retrieval and UI updates.
-- Uses `StateFlow` for reactive UI updates.
-- Handles errors using `CoroutineExceptionHandler`.
-- Preserves scroll position using `SavedStateHandle`.
-
-## Error Handling
-The project includes `ErrorHandlingCallAdapterFactory` and `ErrorHandlingCall` to wrap API calls and handle failures like:
-- Network failures
-- API response errors
-- JSON deserialization errors
+- More details about the project -[ document link]
 
 ## Running Unit Tests
 1. Add the following dependencies for testing:

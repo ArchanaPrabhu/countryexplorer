@@ -1,4 +1,4 @@
-package com.demo.countryexplorer.ui.state
+package com.demo.countryexplorer.framework.presentation
 
 import com.demo.countryexplorer.business.domain.state.Response
 import com.demo.countryexplorer.business.domain.state.StateMessageCallback
