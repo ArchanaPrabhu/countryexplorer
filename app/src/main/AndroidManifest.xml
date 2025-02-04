@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Countryexplorer"
         tools:targetApi="31">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".framework.presentation.countrylist.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>

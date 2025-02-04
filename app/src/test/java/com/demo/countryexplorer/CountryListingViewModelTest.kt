@@ -1,10 +1,10 @@
 import androidx.lifecycle.SavedStateHandle
-import com.demo.countryexplorer.models.Country
-import com.demo.countryexplorer.models.Currency
-import com.demo.countryexplorer.models.Language
-import com.demo.countryexplorer.repository.CountryListingRepository
-import com.demo.countryexplorer.util.UiState
-import com.demo.countryexplorer.viewmodel.CountryListingViewModel
+import com.demo.countryexplorer.framework.datasource.network.model.Country
+import com.demo.countryexplorer.framework.datasource.network.model.Currency
+import com.demo.countryexplorer.framework.datasource.network.model.Language
+import com.demo.countryexplorer.business.interactors.countrylist.CountryListingRepository
+import com.demo.countryexplorer.business.domain.state.UiState
+import com.demo.countryexplorer.framework.presentation.countrylist.CountryListingViewModel
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.*

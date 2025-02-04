@@ -1,18 +1,16 @@
 package com.demo.countryexplorer
 
-import com.demo.countryexplorer.api.GitCountryListingAPI
-import com.demo.countryexplorer.api.RestService
-import com.demo.countryexplorer.models.Country
-import com.demo.countryexplorer.models.Currency
-import com.demo.countryexplorer.models.Language
-import com.demo.countryexplorer.util.ErrorHandlingCall
+import com.demo.countryexplorer.framework.datasource.network.api.countrylist.GitCountryListingAPI
+import com.demo.countryexplorer.framework.datasource.network.abstraction.RestService
+import com.demo.countryexplorer.framework.datasource.network.model.Country
+import com.demo.countryexplorer.framework.datasource.network.model.Currency
+import com.demo.countryexplorer.framework.datasource.network.model.Language
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
-import retrofit2.Retrofit
 
 class RestServiceTest {
 

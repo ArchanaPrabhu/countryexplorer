@@ -7,17 +7,13 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.0"
 material = "1.12.0"
-lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.9.3"
 composeBom = "2024.04.01"
-appCompact = "1.7.0"
-constraintLyt = "2.2.0"
-navVersion = "2.3.0-alpha03"
-roomVersion = "2.1.0"
 retrofitVersion = "2.9.0"
 kotlinTestVersion="1.7.3"
 mockitoVersion="5.5.0"
 mockitoKotlinVersion="5.2.0"
+materialDialogueVersion = "3.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,11 +30,12 @@ retrofit-converter-scalars = { group = "com.squareup.retrofit2", name = "convert
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref="kotlinTestVersion"}
 mockito-core = { group="org.mockito", name="mockito-core", version.ref="mockitoVersion"}
 mockito-kotlin = { group="org.mockito.kotlin", name="mockito-kotlin", version.ref="mockitoKotlinVersion"}
+afollestad-material-dialogs = { group = "com.afollestad.material-dialogs", name = "core", version.ref = "materialDialogueVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
-
+kotlin-parcelize = { id = "kotlin-parcelize" }
 

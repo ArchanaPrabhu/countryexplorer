@@ -1,7 +1,5 @@
 package com.demo.countryexplorer
 
-import com.demo.countryexplorer.util.ErrorHandlingCall
-import com.demo.countryexplorer.util.NetworkCommunicationException
 import kotlinx.coroutines.runBlocking
 import okhttp3.HttpUrl
 import okhttp3.MediaType
